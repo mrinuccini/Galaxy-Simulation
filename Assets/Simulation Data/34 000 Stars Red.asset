@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a485c2328bc967840a6ded40b3884b1a, type: 3}
+  m_Name: 34 000 Stars Red
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 5111898640170979729, guid: 65e0361485501c448b15b449c7a3bc18,
+    type: 3}
+  starAmount: 34000
+  galaxyRadius: 300
+  galaxyThickness: 2
+  initialStarsSpeedMax: 2
+  initialStarsSpeedMin: -2
+  speedProportion: 75
+  blackHoleMass: 0
+  possibleMaterials:
+  - {fileID: 2100000, guid: c5f5744052126604c88be516a5267d35, type: 2}
+  - {fileID: 2100000, guid: 69f153f8c1a6a2d4b92f66bfe2370ca1, type: 2}
+  - {fileID: 2100000, guid: e0dfaa294b98d0b44ba9fb6c431164b7, type: 2}
+  - {fileID: 2100000, guid: 9c28673b7e6037643829895db5fe585c, type: 2}
+  blending: 30
+  starCompute: {fileID: 7200000, guid: cafb609294e2c7b4d951b67ac5fecaf2, type: 3}
+  smoothingLength: 5000
+  interactionPercentage: 0.02
+  timeStep: 0.001
