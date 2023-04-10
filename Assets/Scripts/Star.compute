@@ -1,0 +1,55 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel Interactions
+
+struct Star
+{
+    float3 position;
+    float3 speed;
+    int bodyID;
+};
+
+RWStructuredBuffer<Star> stars;
+int starAmount;
+float step;
+float smoothingLength;
+float interactionPercentage;
+float blackHoleMass;
+
+float norm_2(float3 vect)
+{
+    return pow(vect.x, 2) + pow(vect.y, 2) + pow(vect.z, 2);
+}
+
+float3 ComputeInteraction(float3 pos1, float3 pos2)
+{
+    return (normalize(pos2 - pos1) / (norm_2(pos1 - pos2) + smoothingLength)) / interactionPercentage;
+}
+
+Star Integrations(Star star, float3 acceleration)
+{
+    star.speed += acceleration * step;
+    star.position += star.speed * step;
+
+    return star;
+}
+
+[numthreads(100,1,1)]
+void Interactions (uint3 id : SV_DispatchThreadID)
+{
+    Star currentStar = stars[id.x];
+    float3 acceleration = float3(0, 0, 0);
+        
+    for(int i = 0; i < (interactionPercentage * starAmount); i++)
+    {
+        Star otherStar = stars[i];
+
+        if (i != id.x)
+        {
+            acceleration += ComputeInteraction(currentStar.position, otherStar.position);
+
+            currentStar = Integrations(currentStar, acceleration);
+        }
+    }
+
+    stars[id.x] = currentStar;
+}
