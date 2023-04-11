@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   simData: {fileID: 11400000, guid: e6edc617189afaf4cb44817e1fdff5db, type: 2}
+  useCustomTimeStep: 0
   galaxy1: {fileID: 1984362880}
   galaxy2: {fileID: 787391020}
   collisionMaterials:

@@ -46,10 +46,10 @@ void Interactions (uint3 id : SV_DispatchThreadID)
         if (i != id.x)
         {
             acceleration += ComputeInteraction(currentStar.position, otherStar.position);
-
-            currentStar = Integrations(currentStar, acceleration);
         }
     }
+
+    currentStar = Integrations(currentStar, acceleration);
 
     stars[id.x] = currentStar;
 }
