@@ -27,6 +27,7 @@ public class NBodySimulation : MonoBehaviour
 {
     [Header("Simulation Data")]
     public SimulationData simData;
+    [SerializeField] bool useCustomTimeStep = true;
 
     [Space]
     [Header("Galaxy Data")]
@@ -249,7 +250,7 @@ public class NBodySimulation : MonoBehaviour
 
         starCompute.SetBuffer(0, "stars", starBuffer);
         starCompute.SetInt("starAmount", starAmount);
-        starCompute.SetFloat("step", timeStep);
+        starCompute.SetFloat("step", useCustomTimeStep ? timeStep : Time.deltaTime);
 		starCompute.SetFloat("smoothingLength", smoothingLength); 
         starCompute.SetFloat("interactionPercentage", interactionPercentage);
 		starCompute.SetFloat("blackHoleMass", blackholeMass);
