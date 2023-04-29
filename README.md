@@ -48,6 +48,3 @@ If you don't want to download the source code you can simply download the lastes
     <img src="https://i.imgur.com/4bOoTL5.png">
     <img src="https://i.imgur.com/cYAv4zs.png">
 </p>
-
-# Credits
- * [**Matthias Rinuccini**]("https://github.com/mrinuccini/") : Creator of the project
